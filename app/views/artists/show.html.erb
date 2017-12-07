@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
+<h1> <%= @artist.name %> </h1>
+<h3>Genre: <%= @artist.genre.name %> </h3>
+<h3> Songs: </h3>
 
-<p>
-  <strong>Genre:</strong>
-  <%= @artist.genre %>
-</p>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+<ul>
+	<% @artist.songs.each do |track| %>
+	<li><h4> <%= track.name %></h4></li>
+	<% end %>
+</ul>
+
+
+<%= link_to 'Edit', edit_artist_path(@artist), class: 'btn btn-default' %>
+<%= link_to 'Back', artists_path, class: 'btn btn-default' %>
